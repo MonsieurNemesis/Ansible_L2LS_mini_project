@@ -14,4 +14,4 @@
         # src: "{{lookup('env','PWD')}}/templates/interfaces.j2"
         # dest: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
         src: "../templates/interfaces.j2"
-        dest: "../configs/{{inventory_hostname}}_interface.cfg"
+        dest: "../configurations/{{inventory_hostname}}_interface.cfg"
