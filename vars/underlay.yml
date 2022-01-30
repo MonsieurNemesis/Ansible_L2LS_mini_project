@@ -1,0 +1,65 @@
+global:
+
+spine_1:
+  interfaces:
+    loopback0:
+      ipv4: 10.1.1.1
+      mask: 32
+    Vlan10:
+      ipv4: 10.50.10.1
+      mask: 24
+      ipv4_vir: 10.50.10.254
+      mac_vir: dead.beef.cafe
+    Vlan20:
+      ipv4: 10.50.20.1
+      mask: 24
+      ipv4_vir: 10.50.20.254
+      mac_vir: dead.beef.cafe
+    Vlan4094:
+      ipv4: 10.40.94.0
+      mask: 31
+    
+spine_2:
+  interfaces:
+    loopback0:
+      ipv4: 10.2.2.2
+      mask: 32
+    Vlan10:
+      ipv4: 10.50.10.2
+      mask: 24
+      ipv4_vir: 10.50.10.254
+      mac_vir: dead.beef.cafe
+    Vlan20:
+      ipv4: 10.50.20.2
+      mask: 24
+      ipv4_vir: 10.50.20.254
+      mac_vir: dead.beef.cafe
+    Vlan4094:
+      ipv4: 10.40.94.1
+      mask: 31
+
+# LEAF MLAG PEER - 1
+leaf_1:
+  interfaces:
+    Vlan4094:
+      ipv4: 1.40.94.0
+      mask: 31
+
+leaf_2:
+  interfaces:
+    Vlan4094:
+      ipv4: 1.40.94.1
+      mask: 31
+
+# LEAF MLAG PEER - 2
+leaf_3:
+  interfaces:
+    Vlan4094:
+      ipv4: 2.40.94.0
+      mask: 31
+
+leaf_4:
+  interfaces:
+    Vlan4094:
+      ipv4: 2.40.94.1
+      mask: 31
