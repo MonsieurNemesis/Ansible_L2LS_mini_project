@@ -2,4 +2,7 @@
     interface {{i}}
     ip address {{underlay[inventory_hostname]["interfaces"][i]["ipv4"]}}/{{underlay[inventory_hostname]["interfaces"][i]["mask"]}}
     
+    # Adding the ip virtual router address for VARP 
+    {%if i.startswith("vlan")%}
+    ip virtual-router address {{underlay[inventory_hostname]["interfaces"][i]["ipv4_vir"]}}
 {%endfor%}

@@ -9,15 +9,15 @@ spine_1:
       ipv4: 10.50.10.1
       mask: 24
       ipv4_vir: 10.50.10.254
-      mac_vir: dead.beef.cafe
     Vlan20:
       ipv4: 10.50.20.1
       mask: 24
       ipv4_vir: 10.50.20.254
-      mac_vir: dead.beef.cafe
     Vlan4094:
       ipv4: 10.40.94.0
       mask: 31
+  VARP:
+    mac_vir: dead.beef.cafe
     
 spine_2:
   interfaces:
@@ -27,16 +27,16 @@ spine_2:
     Vlan10:
       ipv4: 10.50.10.2
       mask: 24
-      ipv4_vir: 10.50.10.254
-      mac_vir: dead.beef.cafe
+      ipv4_vir: 10.50.10.254    
     Vlan20:
       ipv4: 10.50.20.2
       mask: 24
-      ipv4_vir: 10.50.20.254
-      mac_vir: dead.beef.cafe
+      ipv4_vir: 10.50.20.254      
     Vlan4094:
       ipv4: 10.40.94.1
       mask: 31
+    VARP:
+      mac_vir: dead.beef.cafe
 
 # LEAF MLAG PEER - 1
 leaf_1:
