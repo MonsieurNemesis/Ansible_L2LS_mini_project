@@ -1,7 +1,9 @@
 all:
   vars:
-    ansible_user: arista # user name (found in ATD dashboard)
-    ansible_connection: network_cli 
+    ansible_user: arista # user name (found in ATD dashboard -> lab credentials)
+    ansible_password: aristapn7z # password (found in ATD dashboard -> lab credentials)
+    # ansible_connection: network_cli 
+    ansible_connection: ssh 
     ansible_network_os: eos # specifies the OS of the switches we are controlling
     ansible_become: yes # will automatically use priviledge escalation
     ansible_become_method: enable # allows you to enter conf mode post this
@@ -9,26 +11,32 @@ all:
 
 
 
-  DC1:
-    children: 
+  children: 
 
-      spine:
-        hosts:
-          spine_1
-          spine_2
+    spine:
+      hosts:
+        spine_1: 
+          ansible_host: 192.168.0.10
+        spine_2:
+          ansible_host: 192.168.0.11
 
-      leaf:
-        hosts:
-          leaf_1
-          leaf_2
-          leaf_3
-          leaf_4
+    leaf:
+      hosts:
+        leaf_1:
+          ansible_host: 192.168.0.12
+        leaf_2:
+          ansible_host: 192.168.0.13
+        leaf_3:
+          ansible_host: 192.168.0.14
+        leaf_4:
+          ansible_host: 192.168.0.15
 
-      server:
-        hosts:
-          host_1
-          host_2
-          host_3
+    server:
+      hosts:
+        host_1:
+          ansible_host: 192.168.0.16
+        host_2:
+          ansible_host: 192.168.0.17
 
 
   
