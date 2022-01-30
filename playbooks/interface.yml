@@ -1,0 +1,17 @@
+# This playbook generates interface configs (loopback0, loopback1, Ethernet1...) and saves it under configs folder
+
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Register variables
+      include_vars:
+          file: "{{lookup('env','PWD')}}/vars/underlay.yml"
+          # file: /vars/underlay.yml
+          name: underlay
+    - name: create template
+      template:
+        src: "{{lookup('env','PWD')}}/templates/interfaces.j2"
+        dest: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
+        # src: /templates/interfaces.j2
+        # dest: /configs/{{inventory_hostname}}_interface.cfg

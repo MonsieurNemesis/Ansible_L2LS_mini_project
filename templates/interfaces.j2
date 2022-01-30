@@ -1,0 +1,5 @@
+{% for i in underlay[inventory_hostname]["interfaces"]%}
+    interface {{i}}
+    ip address {{underlay[inventory_hostname]["interfaces"][i]["ipv4"]}}/{{underlay[inventory_hostname]["interfaces"][i]["mask"]}}
+    
+{%endfor%}
