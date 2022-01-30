@@ -1,3 +1,4 @@
+
 {%for underlay[inventory_hostname]%}
 ip virtual-router mac-address {{underlay[inventory_hostname]["VARP"]["mac_vir"]}}
 {%endfor%}
