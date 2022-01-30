@@ -1,8 +1,9 @@
+
 {% for i in underlay[inventory_hostname]["interfaces"]%}
 interface {{i}}
 ip address {{underlay[inventory_hostname]["interfaces"][i]["ipv4"]}}/{{underlay[inventory_hostname]["interfaces"][i]["mask"]}}
-        
-{%if "ipv4_vir" in i %}
+{% if 'ipv4_vir' in underlay[inventory_hostname]["interfaces"][i] %}
 ip virtual-router address {{underlay[inventory_hostname]["interfaces"][i]["ipv4_vir"]}}
 {%endif%}
+
 {%endfor%}
