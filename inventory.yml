@@ -1,0 +1,36 @@
+all:
+  vars:
+    ansible_user: arista # user name (found in ATD dashboard)
+    ansible_connection: network_cli 
+    ansible_network_os: eos # specifies the OS of the switches we are controlling
+    ansible_become: yes # will automatically use priviledge escalation
+    ansible_become_method: enable # allows you to enter conf mode post this
+    ansible_python_interpreter: /usr/bin/python3
+
+
+
+  DC1:
+    children: 
+
+      spine:
+        hosts:
+          spine_1
+          spine_2
+
+      leaf:
+        hosts:
+          leaf_1
+          leaf_2
+          leaf_3
+          leaf_4
+
+      server:
+        hosts:
+          host_1
+          host_2
+          host_3
+
+
+  
+
+
