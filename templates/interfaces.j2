@@ -2,7 +2,7 @@
 interface {{i}}
 ip address {{underlay[inventory_hostname]["interfaces"][i]["ipv4"]}}/{{underlay[inventory_hostname]["interfaces"][i]["mask"]}}
         
-{%if i.startswith("vlan") and [inventory_hostname].startswith("spine")%}
+{%if "ipv4_vir" in i %}
 ip virtual-router address {{underlay[inventory_hostname]["interfaces"][i]["ipv4_vir"]}}
 {%endif%}
 {%endfor%}
