@@ -16,7 +16,7 @@ spine_1:
     Vlan4094:
       ipv4: 10.40.94.0
       mask: 31
-  varp:
+  VARP:
     mac_vir: dead.beef.cafe
     
 spine_2:
