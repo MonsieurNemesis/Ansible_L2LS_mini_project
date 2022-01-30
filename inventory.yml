@@ -2,8 +2,8 @@ all:
   vars:
     ansible_user: arista # user name (found in ATD dashboard -> lab credentials)
     ansible_password: aristapn7z # password (found in ATD dashboard -> lab credentials)
-    # ansible_connection: network_cli 
-    ansible_connection: ssh 
+    ansible_connection: network_cli 
+    # ansible_connection: ssh 
     ansible_network_os: eos # specifies the OS of the switches we are controlling
     ansible_become: yes # will automatically use priviledge escalation
     ansible_become_method: enable # allows you to enter conf mode post this
