@@ -7,7 +7,7 @@ interface {{i}}
 channel-group {{underlay[inventory_hostname]["interfaces"][i]["name"]}} mode active
 {%endif%}
 {# applies switchport config #}
-{% if 'mode' in underlay[inventory_hostname]["interfaces"][i] %}
+{% if 'mode' in underlay[inventory_hostname]["interfaces"][i] == 'no switchport' %}
 {{underlay[inventory_hostname]["interfaces"][i]["mode"]}}
 {%endif%}
 {# applies trunking config #}
