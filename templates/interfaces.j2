@@ -1,7 +1,33 @@
 
 {% for i in underlay[inventory_hostname]["interfaces"]%}
 interface {{i}}
+
+{# Checks if the interface is supposed to be in a port channel, applies the below config #}
+{% if 'port_channel' in underlay[inventory_hostname]["interfaces"][i] and if underlay[inventory_hostname]["interfaces"][i]["port_channel"]==yes%}
+channel-group {{underlay[inventory_hostname]["interfaces"][i]["name"]}} mode active
+{%endif%}
+
+{# applies switchport config #}
+{% if 'mode' in underlay[inventory_hostname]["interfaces"][i] %}
+{{underlay[inventory_hostname]["interfaces"][i]["mode"]}}
+{%endif%}
+
+{# applies trunking config #}
+{% if 'trunking' in underlay[inventory_hostname]["interfaces"][i] %}
+switchport {{underlay[inventory_hostname]["interfaces"][i]["trunking"]}}
+{%endif%}
+
+{# applies trunkgroup config #}
+{% if 'trunkgroup' in underlay[inventory_hostname]["interfaces"][i] %}
+switchport trunk group {{underlay[inventory_hostname]["interfaces"][i]["trunkgroup"]}}
+{%endif%}
+
+{# applies ip addr config #}
+{% if 'ipv4' in underlay[inventory_hostname]["interfaces"][i] %}
 ip address {{underlay[inventory_hostname]["interfaces"][i]["ipv4"]}}/{{underlay[inventory_hostname]["interfaces"][i]["mask"]}}
+{%endif%}
+
+{# applies VARP ip addr config #}
 {% if 'ipv4_vir' in underlay[inventory_hostname]["interfaces"][i] %}
 ip virtual-router address {{underlay[inventory_hostname]["interfaces"][i]["ipv4_vir"]}}
 {%endif%}

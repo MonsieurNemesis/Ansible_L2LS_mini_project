@@ -12,7 +12,7 @@ spine_1:
     Vlan20:
       ipv4: 10.50.20.1
       mask: 24
-      ipv4_vir: 10.50.20.254
+      ipv4_vir: 10.50.20.254      
     Vlan4094:
       ipv4: 10.40.94.0
       mask: 31
@@ -37,19 +37,79 @@ spine_2:
       mask: 31
   VARP:
     mac_vir: dead.beef.cafe
+#--------------------------------------------
 
 # LEAF MLAG PEER - 1
 leaf_1:
   interfaces:
     Vlan4094:
       ipv4: 1.40.94.0
-      mask: 31
+      mask: 31 
+    Ethernet1:
+      port_channel: yes
+      name: 999
+    Ethernet2:
+      mode: switchport
+      trunking: trunk
+    Ethernet3:
+      mode: switchport
+      trunking: trunk
+    Ethernet4:
+      port_channel: yes
+      name: 10
+    Ethernet5:
+      port_channel: yes
+      name: 10
+    Port-Channel10:      
+      mode: switchport
+      trunking: trunk
+    Port-Channel999:
+      mode: switchport
+      trunking: mode trunk
+      trunkgroup: MLAG-Peer
+  MLAG:
+    trunk_group: MLAG-Peer
+    domain_id: peerLeaf12
+    vlan: 4094
+    mlag_id: 12    
+    peer_link: 999
+    peer_addr: 1.40.94.1
 
 leaf_2:
   interfaces:
     Vlan4094:
       ipv4: 1.40.94.1
       mask: 31
+    Ethernet1:
+      port_channel: yes
+      name: 999
+    Ethernet2:
+      mode: switchport
+      trunking: trunk
+    Ethernet3:
+      mode: switchport
+      trunking: trunk
+    Ethernet4:
+      port_channel: yes
+      name: 10
+    Ethernet5:
+      port_channel: yes
+      name: 10
+    Port-Channel10:      
+      mode: switchport
+      trunking: trunk
+    Port-Channel999:
+      mode: switchport
+      trunking: mode trunk
+      trunkgroup: MLAG-Peer
+  MLAG:
+    trunk_group: MLAG-Peer
+    domain_id: peerLeaf12
+    mlag_id: 12    
+    peer_link: 999
+    peer_addr: 1.40.94.0
+  
+#--------------------------------------------
 
 # LEAF MLAG PEER - 2
 leaf_3:
@@ -57,12 +117,25 @@ leaf_3:
     Vlan4094:
       ipv4: 2.40.94.0
       mask: 31
+    
+  port_channel:
+
+  MLAG:
+    domain_id: peerLeaf23
+    peer_link: po999
+    peer_addr: 2.40.94.1
 
 leaf_4:
   interfaces:
     Vlan4094:
       ipv4: 2.40.94.1
       mask: 31
+  MLAG:
+    domain_id: peerLeaf23
+    peer_link: po999
+    peer_addr: 2.40.94.0
+
+#--------------------------------------------
 
 host_1:
   interfaces:
@@ -75,9 +148,6 @@ host_2:
     vlan 10:
       ipv4: 10.50.10.2
       mask: 24
-
-host_3:
-  interfaces:
-    vlan 10:
+    vlan 20:
       ipv4: 10.50.20.3
       mask: 24

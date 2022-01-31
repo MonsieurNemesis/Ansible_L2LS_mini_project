@@ -6,11 +6,10 @@
   tasks:
     - name: Register variables
       include_vars:
-          # file: "{{lookup('env','PWD')}}/vars/underlay.yml"
-          file: "../vars/underlay.yml"
+          file: "{{lookup('env','PWD')}}/vars/underlay.yml"          
           name: underlay
     - name: create template
       template:
-        src: "{{lookup('env','PWD')}}/templates/interfaces.j2"
+        src: "{{lookup('env','PWD')}}/templates/interfaces.j2"        
         dest: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
-        
+
