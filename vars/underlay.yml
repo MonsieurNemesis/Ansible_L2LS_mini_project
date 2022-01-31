@@ -14,8 +14,8 @@ spine_1:
       mask: 24
       ipv4_vir: 10.50.20.254      
     Vlan4094:
-      ipv4: 10.40.94.0
-      mask: 31  
+      ipv4: 10.40.94.1
+      mask: 30 
     Ethernet1:
       port_channel: "yes"
       name: 999
@@ -48,7 +48,7 @@ spine_1:
     domain_id: peerSpine12
     vlan: 4094    
     peer_link: 999
-    peer_addr: 10.40.94.1
+    peer_addr: 10.40.94.2
   VARP:
     mac_vir: dead.beef.cafe
 
@@ -67,8 +67,8 @@ spine_2:
       mask: 24
       ipv4_vir: 10.50.20.254      
     Vlan4094:
-      ipv4: 10.40.94.1
-      mask: 31
+      ipv4: 10.40.94.2
+      mask: 30
     Ethernet1:
         port_channel: "yes"
         name: 999
@@ -101,7 +101,7 @@ spine_2:
     domain_id: peerSpine12
     vlan: 4094    
     peer_link: 999
-    peer_addr: 10.40.94.0
+    peer_addr: 10.40.94.1
   VARP:
     mac_vir: dead.beef.cafe
 #--------------------------------------------
@@ -110,8 +110,8 @@ spine_2:
 leaf_1:
   interfaces:
     Vlan4094:
-      ipv4: 1.40.94.0
-      mask: 31
+      ipv4: 1.40.94.1
+      mask: 30
     Ethernet1:
       port_channel: "yes"
       name: 999
@@ -149,13 +149,13 @@ leaf_1:
     vlan: 4094
     mlag_id: 12    
     peer_link: 999
-    peer_addr: 1.40.94.1
+    peer_addr: 1.40.94.2
 
 leaf_2:
   interfaces:
     Vlan4094:
-      ipv4: 1.40.94.1
-      mask: 31
+      ipv4: 1.40.94.2
+      mask: 30
     Ethernet1:
       port_channel: "yes"
       name: 999
@@ -194,7 +194,7 @@ leaf_2:
     vlan: 4094
     mlag_id: 12    
     peer_link: 999
-    peer_addr: 1.40.94.0
+    peer_addr: 1.40.94.1
   
 #--------------------------------------------
 
@@ -202,8 +202,8 @@ leaf_2:
 leaf_3:
   interfaces:
     Vlan4094:
-      ipv4: 2.40.94.0
-      mask: 31
+      ipv4: 2.40.94.1
+      mask: 30
     Ethernet1:
       port_channel: "yes"
       name: 999
@@ -241,13 +241,13 @@ leaf_3:
     vlan: 4094
     mlag_id: 23    
     peer_link: 999
-    peer_addr: 2.40.94.1
+    peer_addr: 2.40.94.2
 
 leaf_4:
   interfaces:
     Vlan4094:
-      ipv4: 2.40.94.1
-      mask: 31
+      ipv4: 2.40.94.2
+      mask: 30
     Ethernet 1:
         port_channel: "yes"
         name: 999
@@ -285,7 +285,7 @@ leaf_4:
     vlan: 4094
     mlag_id: 23 
     peer_link: 999
-    peer_addr: 2.40.94.0
+    peer_addr: 2.40.94.1
 
 #--------------------------------------------
 
