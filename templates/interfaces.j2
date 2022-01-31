@@ -3,7 +3,7 @@
 
 interface {{i}}
 {# Checks if the interface is supposed to be in a port channel, applies the below config #}
-{% if ('port_channel' in underlay[inventory_hostname]["interfaces"][i]) and (underlay[inventory_hostname]["interfaces"][i]["port_channel"]=="yes")%}
+{% if ('port_channel' in underlay[inventory_hostname]["interfaces"][i]) and (underlay[inventory_hostname]["interfaces"][i]["port_channel"]=='yes')%}
 channel-group {{underlay[inventory_hostname]["interfaces"][i]["name"]}} mode active
 {%endif%}
 {# applies switchport config #}
