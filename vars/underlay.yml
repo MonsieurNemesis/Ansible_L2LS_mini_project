@@ -44,7 +44,7 @@ spine_1:
       id: 4094
       trunkgroup: MLAG-Peer
   MLAG:
-    trunk_group: MLAG-Peer
+    trunkgroup: MLAG-Peer
     domain_id: peerSpine12
     vlan: 4094    
     peer_link: 999
@@ -97,7 +97,7 @@ spine_2:
       id: 4094
       trunkgroup: MLAG-Peer
   MLAG:
-    trunk_group: MLAG-Peer
+    trunkgroup: MLAG-Peer
     domain_id: peerSpine12
     vlan: 4094    
     peer_link: 999
@@ -143,7 +143,7 @@ leaf_1:
       id: 4094
       trunkgroup: MLAG-Peer
   MLAG:
-    trunk_group: MLAG-Peer
+    trunkgroup: MLAG-Peer
     domain_id: peerLeaf12
     vlan: 4094
     mlag_id: 12    
@@ -187,7 +187,7 @@ leaf_2:
       trunkgroup: MLAG-Peer
     
   MLAG:
-    trunk_group: MLAG-Peer
+    trunkgroup: MLAG-Peer
     domain_id: peerLeaf12
     vlan: 4094
     mlag_id: 12    
@@ -233,7 +233,7 @@ leaf_3:
       id: 4094
       trunkgroup: MLAG-Peer
   MLAG:
-    trunk_group: MLAG-Peer
+    trunkgroup: MLAG-Peer
     domain_id: peerLeaf23
     vlan: 4094
     mlag_id: 12    
@@ -276,7 +276,7 @@ leaf_4:
       id: 4094
       trunkgroup: MLAG-Peer
   MLAG:
-    trunk_group: MLAG-Peer
+    trunkgroup: MLAG-Peer
     domain_id: peerLeaf23
     vlan: 4094
     mlag_id: 12    
