@@ -15,9 +15,35 @@ spine_1:
       ipv4_vir: 10.50.20.254      
     Vlan4094:
       ipv4: 10.40.94.0
-      mask: 31
+      mask: 31  
+    Ethernet1:
+      port_channel: yes
+      name: 999
+    Ethernet2:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet3:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet4:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet5:
+      mode: switchport
+      trunking: mode trunk
+    Port-Channel999:
+      mode: switchport
+      trunking: mode trunk
+      trunkgroup: MLAG-Peer
+  MLAG:
+    trunk_group: MLAG-Peer
+    domain_id: peerSpine12
+    vlan: 4094    
+    peer_link: 999
+    peer_addr: 10.40.94.1
   VARP:
     mac_vir: dead.beef.cafe
+
     
 spine_2:
   interfaces:
@@ -35,6 +61,31 @@ spine_2:
     Vlan4094:
       ipv4: 10.40.94.1
       mask: 31
+    Ethernet1:
+        port_channel: yes
+        name: 999
+    Ethernet2:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet3:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet4:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet5:
+      mode: switchport
+      trunking: mode trunk
+    Port-Channel999:
+      mode: switchport
+      trunking: mode trunk
+      trunkgroup: MLAG-Peer
+  MLAG:
+    trunk_group: MLAG-Peer
+    domain_id: peerSpine12
+    vlan: 4094    
+    peer_link: 999
+    peer_addr: 10.40.94.0
   VARP:
     mac_vir: dead.beef.cafe
 #--------------------------------------------
@@ -186,15 +237,46 @@ leaf_4:
 
 host_1:
   interfaces:
-    vlan 10:
+    Vlan 10:
       ipv4: 10.50.10.1
       mask: 24
+    Ethernet1:
+      port_channel: yes
+      name: 10
+    Ethernet2:
+      port_channel: yes
+      name: 10
+    Ethernet3:
+      port_channel: yes
+      name: 10
+    Ethernet4:
+      port_channel: yes
+      name: 10
+    Port-Channel10:      
+      mode: switchport
+      trunking: mode trunk
+    
 
 host_2:
   interfaces:
-    vlan 10:
+    Vlan 10:
       ipv4: 10.50.10.2
       mask: 24
-    vlan 20:
+    Vlan 20:
       ipv4: 10.50.20.3
       mask: 24
+    Ethernet1:
+      port_channel: yes
+      name: 10
+    Ethernet2:
+      port_channel: yes
+      name: 10
+    Ethernet3:
+      port_channel: yes
+      name: 10
+    Ethernet4:
+      port_channel: yes
+      name: 10
+    Port-Channel10:      
+      mode: switchport
+      trunking: mode trunk
