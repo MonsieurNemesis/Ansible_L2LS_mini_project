@@ -8,7 +8,7 @@
     eos_config:
       src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
     
-  - name: Push spine eBGP configurations
+  - name: Push spine mlag + routing configurations
     eos_config:
       src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_spine.cfg"
 
@@ -20,6 +20,19 @@
     eos_config:
       src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
     
-  - name: Push leafs eBGP configurations
+  - name: Push leafs mlag configurations
     eos_config:
       src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_leaf.cfg"
+
+
+
+- hosts: server
+  gather_facts: no
+  tasks:
+  - name: Push server interfaces configurations
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
+    
+  - name: Push servers route configurations
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_host.cfg"
