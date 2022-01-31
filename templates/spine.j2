@@ -7,7 +7,7 @@ ip virtual-router mac-address {{underlay[inventory_hostname]["VARP"]["mac_vir"]}
 {%- endfor%}#}
 
 {%for i in underlay[inventory_hostname]["vlans"]%}
-vlan {{i}}
+vlan {{underlay[inventory_hostname]["vlans"][i]["id"]}}
 {%if 'trunk_group' in underlay[inventory_hostname]["vlans"][i]%}
     trunk group {{underlay[inventory_hostname]["vlans"][i]["trunk_group"]}}
 {%endif%}

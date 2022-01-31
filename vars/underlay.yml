@@ -36,10 +36,13 @@ spine_1:
       trunking: mode trunk
       trunkgroup: MLAG-Peer
   vlans:
-    10:
-    20:
-    4094:
-      trunk_group: MLAG-Peer
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20
+    Vlan4094:
+      id: 4094
+      trunkgroup: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerSpine12
@@ -86,10 +89,13 @@ spine_2:
       trunking: mode trunk
       trunkgroup: MLAG-Peer
   vlans:
-    10:
-    20:
-    4094:
-      trunk_group: MLAG-Peer
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20
+    Vlan4094:
+      id: 4094
+      trunkgroup: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerSpine12
@@ -129,10 +135,13 @@ leaf_1:
       trunking: mode trunk
       trunkgroup: MLAG-Peer
   vlans:
-    10:
-    20:
-    4094:
-      trunk_group: MLAG-Peer
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20
+    Vlan4094:
+      id: 4094
+      trunkgroup: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerLeaf12
@@ -169,10 +178,13 @@ leaf_2:
       trunking: mode trunk
       trunkgroup: MLAG-Peer
   vlans:
-    10:
-    20:
-    4094:
-      trunk_group: MLAG-Peer
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20
+    Vlan4094:
+      id: 4094
+      trunkgroup: MLAG-Peer
     
   MLAG:
     trunk_group: MLAG-Peer
@@ -212,7 +224,14 @@ leaf_3:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
-  vlans: [10,20,4094]
+  vlans:
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20
+    Vlan4094:
+      id: 4094
+      trunkgroup: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerLeaf23
@@ -248,7 +267,14 @@ leaf_4:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
-  vlans: [10,20,4094]
+  vlans:
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20
+    Vlan4094:
+      id: 4094
+      trunkgroup: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerLeaf23
@@ -279,8 +305,11 @@ host_1:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-  vlans: [10]
-    
+  vlans:
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20    
 
 host_2:
   interfaces:
@@ -305,4 +334,8 @@ host_2:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-  vlans: [10,20]
+  vlans:
+    Vlan10:
+      id: 10
+    Vlan20:
+      id: 20    
