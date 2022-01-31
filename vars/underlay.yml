@@ -46,23 +46,23 @@ leaf_1:
       ipv4: 1.40.94.0
       mask: 31 
     Ethernet1:
-      port_channel: yes
+      port_channel: "yes"
       name: 999
     Ethernet2:
       mode: switchport
-      trunking: trunk
+      trunking: mode trunk
     Ethernet3:
       mode: switchport
-      trunking: trunk
+      trunking: mode trunk
     Ethernet4:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet5:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Port-Channel10:      
       mode: switchport
-      trunking: trunk
+      trunking: mode trunk
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -81,23 +81,23 @@ leaf_2:
       ipv4: 1.40.94.1
       mask: 31
     Ethernet1:
-      port_channel: yes
+      port_channel: "yes"
       name: 999
     Ethernet2:
       mode: switchport
-      trunking: trunk
+      trunking: mode trunk
     Ethernet3:
       mode: switchport
-      trunking: trunk
+      trunking: mode trunk
     Ethernet4:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet5:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Port-Channel10:      
       mode: switchport
-      trunking: trunk
+      trunking: mode trunk
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -117,12 +117,34 @@ leaf_3:
     Vlan4094:
       ipv4: 2.40.94.0
       mask: 31
-    
-  port_channel:
-
+    Ethernet1:
+      port_channel: "yes"
+      name: 999
+    Ethernet2:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet3:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet4:
+      port_channel: "yes"
+      name: 10
+    Ethernet5:
+      port_channel: "yes"
+      name: 10
+    Port-Channel10:      
+      mode: switchport
+      trunking: mode trunk
+    Port-Channel999:
+      mode: switchport
+      trunking: mode trunk
+      trunkgroup: MLAG-Peer
   MLAG:
+    trunk_group: MLAG-Peer
     domain_id: peerLeaf23
-    peer_link: po999
+    vlan: 4094
+    mlag_id: 12    
+    peer_link: 999
     peer_addr: 2.40.94.1
 
 leaf_4:
@@ -130,9 +152,34 @@ leaf_4:
     Vlan4094:
       ipv4: 2.40.94.1
       mask: 31
+    Ethernet1:
+        port_channel: "yes"
+        name: 999
+    Ethernet2:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet3:
+      mode: switchport
+      trunking: mode trunk
+    Ethernet4:
+      port_channel: "yes"
+      name: 10
+    Ethernet5:
+      port_channel: "yes"
+      name: 10
+    Port-Channel10:      
+      mode: switchport
+      trunking: mode trunk
+    Port-Channel999:
+      mode: switchport
+      trunking: mode trunk
+      trunkgroup: MLAG-Peer
   MLAG:
+    trunk_group: MLAG-Peer
     domain_id: peerLeaf23
-    peer_link: po999
+    vlan: 4094
+    mlag_id: 12    
+    peer_link: 999
     peer_addr: 2.40.94.0
 
 #--------------------------------------------
