@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+  - name: save config
+    eos_command: 
+      commands: 
+        - wr

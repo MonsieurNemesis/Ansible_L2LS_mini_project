@@ -1,0 +1,25 @@
+# This playbook is to be used to push spines and leafs config
+
+---
+- hosts: spine
+  gather_facts: no
+  tasks:
+  - name: Push spine interfaces configurations
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
+    
+  - name: Push spine eBGP configurations
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_spine.cfg"
+
+
+- hosts: leaf
+  gather_facts: no
+  tasks:
+  - name: Push leaf interfaces configurations
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_interface.cfg"
+    
+  - name: Push leafs eBGP configurations
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_leaf.cfg"
