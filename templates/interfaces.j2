@@ -2,7 +2,7 @@
 
 interface {{i}}
 {# Extra config for SVI #}
-{% if underlay[inventory_hostname]["interfaces"][i].startswith("Vlan")%}
+{% if i.startswith("Vlan")%}
 no autostate
 mtu 9214
 {%endif%}

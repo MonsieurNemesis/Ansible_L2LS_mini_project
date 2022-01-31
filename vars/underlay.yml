@@ -160,6 +160,7 @@ leaf_2:
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerLeaf12
+    vlan: 4094
     mlag_id: 12    
     peer_link: 999
     peer_addr: 1.40.94.0
