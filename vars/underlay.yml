@@ -169,7 +169,7 @@ leaf_3:
       ipv4: 2.40.94.0
       mask: 31
     Ethernet1:
-      port_channel: yes
+      port_channel: "yes"
       name: 999
     Ethernet2:
       mode: switchport
@@ -178,10 +178,10 @@ leaf_3:
       mode: switchport
       trunking: mode trunk
     Ethernet4:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet5:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Port-Channel10:      
       mode: switchport
@@ -204,7 +204,7 @@ leaf_4:
       ipv4: 2.40.94.1
       mask: 31
     Ethernet1:
-        port_channel: yes
+        port_channel: "yes"
         name: 999
     Ethernet2:
       mode: switchport
@@ -213,10 +213,10 @@ leaf_4:
       mode: switchport
       trunking: mode trunk
     Ethernet4:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet5:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Port-Channel10:      
       mode: switchport
@@ -241,16 +241,16 @@ host_1:
       ipv4: 10.50.10.1
       mask: 24
     Ethernet1:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet2:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet3:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet4:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Port-Channel10:      
       mode: switchport
@@ -266,16 +266,16 @@ host_2:
       ipv4: 10.50.20.3
       mask: 24
     Ethernet1:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet2:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet3:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Ethernet4:
-      port_channel: yes
+      port_channel: "yes"
       name: 10
     Port-Channel10:      
       mode: switchport
