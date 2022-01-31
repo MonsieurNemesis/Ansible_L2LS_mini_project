@@ -3,7 +3,7 @@ no spanning-tree vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
 
 {%for i in underlay[inventory_hostname]["vlans"]%}
 vlan {{underlay[inventory_hostname]["vlans"][i]["id"]}}
-{%if 'trunk_group' in underlay[inventory_hostname]["vlans"][i]%}
+{%if 'trunkgroup' in underlay[inventory_hostname]["vlans"][i]%}
     trunk group {{underlay[inventory_hostname]["vlans"][i]["trunk_group"]}}
 {%endif%}
 {%endfor%}
