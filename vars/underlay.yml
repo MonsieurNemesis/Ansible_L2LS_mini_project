@@ -248,19 +248,19 @@ leaf_4:
     Vlan4094:
       ipv4: 2.40.94.1
       mask: 31
-    Ethernet1:
+    Ethernet 1:
         port_channel: "yes"
         name: 999
-    Ethernet2:
+    Ethernet 2:
       mode: switchport
       trunking: mode trunk
-    Ethernet3:
+    Ethernet 3:
       mode: switchport
       trunking: mode trunk
-    Ethernet4:
+    Ethernet 4:
       port_channel: "yes"
       name: 10
-    Ethernet5:
+    Ethernet 5:
       port_channel: "yes"
       name: 10
     Port-Channel10:      
