@@ -1,0 +1,12 @@
+---
+- hosts: leaf
+  gather_facts: no
+  tasks:
+  - name: Register variables
+    include_vars:
+      file: "{{lookup('env', 'PWD')}}/vars/underlay.yml"
+      name: underlay
+  - name: Create template
+    template:
+      src: "{{lookup('env', 'PWD')}}/templates/leaf.j2"
+      dest: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_leaf.cfg"

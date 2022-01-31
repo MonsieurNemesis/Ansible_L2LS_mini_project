@@ -1,5 +1,11 @@
+{# Mlag config #}
+no spanning-tree vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
 
+vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
+    trunk group {{underlay[inventory_hostname]["MLAG"]["trunk_group"]}}
 
 mlag configuration
-    domain-id 12
-    peer-link {{underlay[inventory_hostname]}}
+    domain-id {{underlay[inventory_hostname]["MLAG"]["domain_id"]}}
+    local-interface vlan{{underlay[inventory_hostname]["MLAG"]["vlan"]}}
+    peer-address {{underlay[inventory_hostname]["MLAG"]["peer_addr"]}}
+    peer-link Port-Channel{{underlay[inventory_hostname]["MLAG"]["peer_link"]}}

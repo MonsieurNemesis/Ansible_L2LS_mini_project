@@ -3,5 +3,5 @@ ip routing
 ip virtual-router mac-address {{underlay[inventory_hostname]["VARP"]["mac_vir"]}}
 
 vlan {%for i in underlay[inventory_hostname]["vlans"] -%}
- {{i}} {% if loop.index != loop.length - 1 %},  {%endif%}
+ {{i}}{% if loop.index != loop.length %},{%endif%}
 {%- endfor%}

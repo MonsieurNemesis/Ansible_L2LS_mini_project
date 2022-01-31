@@ -97,7 +97,7 @@ leaf_1:
   interfaces:
     Vlan4094:
       ipv4: 1.40.94.0
-      mask: 31 
+      mask: 31
     Ethernet1:
       port_channel: "yes"
       name: 999
