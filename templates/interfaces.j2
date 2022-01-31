@@ -10,6 +10,10 @@ mtu 9214
 {% if ('port_channel' in underlay[inventory_hostname]["interfaces"][i]) and (underlay[inventory_hostname]["interfaces"][i]["port_channel"]=='yes')%}
 channel-group {{underlay[inventory_hostname]["interfaces"][i]["name"]}} mode active
 {%endif%}
+{# applies mlag id #}
+{% if 'mlag_id' in underlay[inventory_hostname]["interfaces"][i] %}
+mlag {{underlay[inventory_hostname]["interfaces"][i]["mlag_id"]}}
+{%endif%}
 {# applies switchport config: "switchport" | "no switchport" #}
 {% if 'mode' in underlay[inventory_hostname]["interfaces"][i] == 'no switchport' %}
 {{underlay[inventory_hostname]["interfaces"][i]["mode"]}}
