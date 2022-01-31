@@ -312,8 +312,11 @@ host_1:
   vlans:
     Vlan10:
       id: 10
-    Vlan20:
-      id: 20    
+  GW:
+    Vlan10:
+      prefix: 10.50.10.0
+      mask: 24
+      next_hop: 10.50.10.254
 
 host_2:
   interfaces:
@@ -342,4 +345,13 @@ host_2:
     Vlan10:
       id: 10
     Vlan20:
-      id: 20    
+      id: 20 
+  GW:
+    Vlan10:
+      prefix: 10.50.10.0
+      mask: 24
+      next_hop: 10.50.10.254
+    Vlan20:
+      prefix: 10.50.20.0
+      mask: 24
+      next_hop: 10.50.20.254
