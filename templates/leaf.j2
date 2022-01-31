@@ -1,10 +1,11 @@
-{# Mlag config #}
+
 no spanning-tree vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
 
 {%for i in underlay[inventory_hostname]["vlans"]%}
 vlan {{i}}
 {%if 'trunk_group' in underlay[inventory_hostname]["vlans"][i]%}
     trunk group {{underlay[inventory_hostname]["vlans"][i]["trunk_group"]}}
+{%endif%}
 {%endfor%}
 
 {#vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
