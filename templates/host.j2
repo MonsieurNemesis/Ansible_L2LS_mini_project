@@ -1,4 +1,4 @@
 
 {%for i in underlay[inventory_hostname]["GW"]%}
-ip route {{underlay[inventory_hostname]["GW"][i]["prefix"]/underlay[inventory_hostname]["GW"][i]["mask"]}} {{underlay[inventory_hostname]["GW"][i]["next_hop"]}}
+ip route {{underlay[inventory_hostname]["GW"][i]["prefix"]}}/{{underlay[inventory_hostname]["GW"][i]["mask"]}} {{underlay[inventory_hostname]["GW"][i]["next_hop"]}}
 {%endfor%}
