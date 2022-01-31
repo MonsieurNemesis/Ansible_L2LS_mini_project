@@ -1,11 +1,17 @@
 {# Mlag config #}
 no spanning-tree vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
 
-vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
-    trunk group {{underlay[inventory_hostname]["MLAG"]["trunk_group"]}}
+{%for i in underlay[inventory_hostname]["vlans"]%}
+vlan {{i}}
+{%if 'trunk_group' in underlay[inventory_hostname]["vlans"][i]%}
+    trunk group {{underlay[inventory_hostname]["vlans"][i]["trunk_group"]}}
+{%endfor%}
+
+{#vlan {{underlay[inventory_hostname]["MLAG"]["vlan"]}}
+    trunk group {{underlay[inventory_hostname]["MLAG"]["trunk_group"]}}#}
 
 mlag configuration
     domain-id {{underlay[inventory_hostname]["MLAG"]["domain_id"]}}
-    local-interface vlan{{underlay[inventory_hostname]["MLAG"]["vlan"]}}
+    local-interface Vlan{{underlay[inventory_hostname]["MLAG"]["vlan"]}}
     peer-address {{underlay[inventory_hostname]["MLAG"]["peer_addr"]}}
     peer-link Port-Channel{{underlay[inventory_hostname]["MLAG"]["peer_link"]}}

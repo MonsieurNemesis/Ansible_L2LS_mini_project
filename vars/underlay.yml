@@ -35,7 +35,11 @@ spine_1:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
-  vlans: [10,20,4094]
+  vlans:
+    10:
+    20:
+    4094:
+      trunk_group: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerSpine12
@@ -81,7 +85,11 @@ spine_2:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
-  vlans: [10,20,4094]
+  vlans:
+    10:
+    20:
+    4094:
+      trunk_group: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerSpine12
@@ -120,7 +128,11 @@ leaf_1:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
-  vlans: [10,20,4094]
+  vlans:
+    10:
+    20:
+    4094:
+      trunk_group: MLAG-Peer
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerLeaf12
@@ -156,7 +168,12 @@ leaf_2:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
-  vlans: [10,20,4094]
+  vlans:
+    10:
+    20:
+    4094:
+      trunk_group: MLAG-Peer
+    
   MLAG:
     trunk_group: MLAG-Peer
     domain_id: peerLeaf12
