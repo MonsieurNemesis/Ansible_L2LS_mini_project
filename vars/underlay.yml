@@ -222,7 +222,7 @@ leaf_3:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-      mlag_id: 12    
+      mlag_id: 23
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -239,7 +239,7 @@ leaf_3:
     trunkgroup: MLAG-Peer
     domain_id: peerLeaf23
     vlan: 4094
-    mlag_id: 12    
+    mlag_id: 23    
     peer_link: 999
     peer_addr: 2.40.94.1
 
@@ -266,7 +266,7 @@ leaf_4:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-      mlag_id: 12    
+      mlag_id: 23
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -283,7 +283,7 @@ leaf_4:
     trunkgroup: MLAG-Peer
     domain_id: peerLeaf23
     vlan: 4094
-    mlag_id: 12    
+    mlag_id: 23 
     peer_link: 999
     peer_addr: 2.40.94.0
 
