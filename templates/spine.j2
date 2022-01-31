@@ -12,3 +12,9 @@ vlan {{underlay[inventory_hostname]["vlans"][i]["id"]}}
     trunk group {{underlay[inventory_hostname]["vlans"][i]["trunkgroup"]}}
 {%endif%}
 {%endfor%}
+
+mlag configuration
+    domain-id {{underlay[inventory_hostname]["MLAG"]["domain_id"]}}
+    local-interface Vlan{{underlay[inventory_hostname]["MLAG"]["vlan"]}}
+    peer-address {{underlay[inventory_hostname]["MLAG"]["peer_addr"]}}
+    peer-link Port-Channel{{underlay[inventory_hostname]["MLAG"]["peer_link"]}}
