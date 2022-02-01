@@ -2,3 +2,10 @@
 {%for i in underlay[inventory_hostname]["GW"]%}
 ip route {{underlay[inventory_hostname]["GW"][i]["prefix"]}}/{{underlay[inventory_hostname]["GW"][i]["mask"]}} {{underlay[inventory_hostname]["GW"][i]["next_hop"]}}
 {%endfor%}
+
+{%for i in underlay[inventory_hostname]["vlans"]%}
+vlan {{underlay[inventory_hostname]["vlans"][i]["id"]}}
+{%if 'trunkgroup' in underlay[inventory_hostname]["vlans"][i]%}
+    trunk group {{underlay[inventory_hostname]["vlans"][i]["trunkgroup"]}}
+{%endif%}
+{%endfor%}

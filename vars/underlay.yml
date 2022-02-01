@@ -357,6 +357,10 @@ host_1:
       prefix: 10.50.10.0
       mask: 24
       next_hop: 10.50.10.254
+    Vlan20:
+      prefix: 10.50.20.0
+      mask: 24
+      next_hop: 10.50.20.254
 
 host_2:
   interfaces:
