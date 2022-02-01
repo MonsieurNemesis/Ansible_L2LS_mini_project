@@ -2,10 +2,10 @@
 
 interface {{i}}
 {# Extra config for SVI #}
-{% if i.startswith("Vlan")%}
+{#% if i.startswith("Vlan")%}
     no autostate
     mtu 9214
-{%endif%}
+{%endif%#}
 {# Checks if the interface is supposed to be in a port channel, applies the below config #}
 {% if ('port_channel' in underlay[inventory_hostname]["interfaces"][i]) and (underlay[inventory_hostname]["interfaces"][i]["port_channel"]=='yes')%}
     channel-group {{underlay[inventory_hostname]["interfaces"][i]["name"]}} mode active

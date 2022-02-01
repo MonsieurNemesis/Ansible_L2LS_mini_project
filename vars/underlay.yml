@@ -15,22 +15,28 @@ spine_1:
       ipv4_vir: 10.50.20.254      
     Vlan4094:
       ipv4: 10.40.94.1
-      mask: 30 
+      mask: 30
     Ethernet1:
       port_channel: "yes"
       name: 999
     Ethernet2:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet3:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet4:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet5:
+      port_channel: "yes"
+      name: 11
+    Ethernet6:
+      port_channel: "yes"
+      name: 999
+    Port-Channel11:
       mode: switchport
-      trunking: mode trunk
+      trunking: mode trunk     
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -70,18 +76,24 @@ spine_2:
       ipv4: 10.40.94.2
       mask: 30
     Ethernet1:
-        port_channel: "yes"
-        name: 999
+      port_channel: "yes"
+      name: 999
     Ethernet2:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet3:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet4:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet5:
+      port_channel: "yes"
+      name: 11
+    Ethernet6:
+      port_channel: "yes"
+      name: 999
+    Port-Channel11:
       mode: switchport
       trunking: mode trunk
     Port-Channel999:
@@ -116,21 +128,28 @@ leaf_1:
       port_channel: "yes"
       name: 999
     Ethernet2:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet3:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet4:
       port_channel: "yes"
       name: 10
     Ethernet5:
       port_channel: "yes"
       name: 10
+    Ethernet6:
+      port_channel: "yes"
+      name: 999      
     Port-Channel10:      
       mode: switchport
+      trunking: mode trunk    
+      mlag_id: 12
+    Port-Channel11:
+      mode: switchport
       trunking: mode trunk
-      mlag_id: 12    
+      mlag_id: 11
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -160,21 +179,28 @@ leaf_2:
       port_channel: "yes"
       name: 999
     Ethernet2:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet3:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet4:
       port_channel: "yes"
       name: 10
     Ethernet5:
       port_channel: "yes"
       name: 10
+    Ethernet6:
+      port_channel: "yes"
+      name: 999   
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-      mlag_id: 12    
+      mlag_id: 12
+    Port-Channel11:
+      mode: switchport
+      trunking: mode trunk
+      mlag_id: 11
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -208,21 +234,28 @@ leaf_3:
       port_channel: "yes"
       name: 999
     Ethernet2:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet3:
-      mode: switchport
-      trunking: mode trunk
+      port_channel: "yes"
+      name: 11
     Ethernet4:
       port_channel: "yes"
       name: 10
     Ethernet5:
       port_channel: "yes"
       name: 10
+    Ethernet6:
+      port_channel: "yes"
+      name: 999   
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
       mlag_id: 23
+    Port-Channel11:
+      mode: switchport
+      trunking: mode trunk
+      mlag_id: 11
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
@@ -248,25 +281,32 @@ leaf_4:
     Vlan4094:
       ipv4: 2.40.94.2
       mask: 30
-    Ethernet 1:
-        port_channel: "yes"
-        name: 999
-    Ethernet 2:
-      mode: switchport
-      trunking: mode trunk
-    Ethernet 3:
-      mode: switchport
-      trunking: mode trunk
-    Ethernet 4:
+    Ethernet1:
+      port_channel: "yes"
+      name: 999
+    Ethernet2:
+      port_channel: "yes"
+      name: 11
+    Ethernet3:
+      port_channel: "yes"
+      name: 11
+    Ethernet4:
       port_channel: "yes"
       name: 10
-    Ethernet 5:
+    Ethernet5:
       port_channel: "yes"
       name: 10
+    Ethernet6:
+      port_channel: "yes"
+      name: 999   
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
       mlag_id: 23
+    Port-Channel11:
+      mode: switchport
+      trunking: mode trunk
+      mlag_id: 11
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
