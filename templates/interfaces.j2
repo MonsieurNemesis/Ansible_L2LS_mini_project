@@ -6,6 +6,10 @@ interface {{i}}
     no autostate
     mtu 9214
 {%endif%#}
+{# Adds interface description if present#}
+{% if ('description' in underlay[inventory_hostname]["interfaces"][i])%}
+    description {{underlay[inventory_hostname]["interfaces"][i]["description"]}}
+{%endif%}
 {# Checks if the interface is supposed to be in a port channel, applies the below config #}
 {% if ('port_channel' in underlay[inventory_hostname]["interfaces"][i]) and (underlay[inventory_hostname]["interfaces"][i]["port_channel"]=='yes')%}
     channel-group {{underlay[inventory_hostname]["interfaces"][i]["name"]}} mode active

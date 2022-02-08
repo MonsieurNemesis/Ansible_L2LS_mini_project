@@ -1,4 +1,4 @@
-global:
+global:  
 
 spine_1:
   interfaces:
@@ -16,33 +16,50 @@ spine_1:
     Vlan4094:
       ipv4: 10.40.94.1
       mask: 30
+    
     Ethernet1:
       port_channel: "yes"
       name: 999
-    Ethernet2:
+      description: "Part of MLAG peer link"
+    Ethernet2:      
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "Part of PoCh towards Leaf12"
     Ethernet3:
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "Part of PoCh towards Leaf12"
     Ethernet4:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "Part of PoCh towards Leaf34"
     Ethernet5:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "Part of PoCh towards Leaf34"
     Ethernet6:
       port_channel: "yes"
       name: 999
-    Port-Channel11:
+      description: "MLAG peer link"
+
+    Port-Channel12:
+      mode: switchport
+      trunking: mode trunk 
+      description: "PoCh towards Leaf12"
+      mlag_id: 12
+    Port-Channel34:
       mode: switchport
       trunking: mode trunk     
+      description: "PoCh towards Leaf34"
+      mlag_id: 34
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
+      description: "MLAG peer link"      
+
   vlans:
-    Vlan10:
+    Vlan10:      
       id: 10
     Vlan20:
       id: 20
@@ -75,31 +92,48 @@ spine_2:
     Vlan4094:
       ipv4: 10.40.94.2
       mask: 30
+
     Ethernet1:
       port_channel: "yes"
       name: 999
-    Ethernet2:
+      description: "Part of MLAG peer link"
+    Ethernet2:      
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "Part of PoCh towards Leaf12"
     Ethernet3:
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "Part of PoCh towards Leaf12"
     Ethernet4:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "Part of PoCh towards Leaf23"
     Ethernet5:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "Part of PoCh towards Leaf23"
     Ethernet6:
       port_channel: "yes"
       name: 999
-    Port-Channel11:
+      description: "Part of MLAG peer link"
+
+    Port-Channel12:
       mode: switchport
-      trunking: mode trunk
+      trunking: mode trunk 
+      description: "PoCh towards Leaf12"
+      mlag_id: 12
+    Port-Channel34:
+      mode: switchport
+      trunking: mode trunk     
+      description: "PoCh towards Leaf34"
+      mlag_id: 34
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
+      description: "MLAG peer link"    
+
   vlans:
     Vlan10:
       id: 10
@@ -129,10 +163,12 @@ leaf_1:
       name: 999
     Ethernet2:
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "part of PoCh towards Spine 1"
     Ethernet3:
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "part of PoCh towards Spine 2"
     Ethernet4:
       port_channel: "yes"
       name: 10
@@ -145,15 +181,18 @@ leaf_1:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk    
-      mlag_id: 12
-    Port-Channel11:
+      mlag_id: 10
+      description: "Towards Host 1"
+    Port-Channel12:
       mode: switchport
       trunking: mode trunk
-      mlag_id: 11
+      mlag_id: 12
+      description: "Leaf 1 to Spine"
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
+      description: "MLAG Peer Link"
   vlans:
     Vlan10:
       id: 10
@@ -180,10 +219,12 @@ leaf_2:
       name: 999
     Ethernet2:
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "part of Po towards Spine 1"
     Ethernet3:
       port_channel: "yes"
-      name: 11
+      name: 12
+      description: "part of Po towards Spine 2"
     Ethernet4:
       port_channel: "yes"
       name: 10
@@ -196,15 +237,18 @@ leaf_2:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-      mlag_id: 12
-    Port-Channel11:
+      mlag_id: 10
+      description: "Towards Host 1"
+    Port-Channel12:
       mode: switchport
       trunking: mode trunk
-      mlag_id: 11
+      mlag_id: 12
+      description: "Leaf 2 to Spine"
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
+      description: "MLAG Peer link"
   vlans:
     Vlan10:
       id: 10
@@ -235,10 +279,12 @@ leaf_3:
       name: 999
     Ethernet2:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "part of Po towards Spine 1"
     Ethernet3:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "part of Po towards Spine 2"
     Ethernet4:
       port_channel: "yes"
       name: 10
@@ -248,18 +294,21 @@ leaf_3:
     Ethernet6:
       port_channel: "yes"
       name: 999   
-    Port-Channel10:      
+    Port-Channel10: 
       mode: switchport
       trunking: mode trunk
-      mlag_id: 23
-    Port-Channel11:
+      mlag_id: 10
+      description: "Towards Host 2"
+    Port-Channel34:
       mode: switchport
       trunking: mode trunk
-      mlag_id: 11
+      mlag_id: 34
+      description: "Leaf 3 to Spine"
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
+      description: "MLAG Peer link"
   vlans:
     Vlan10:
       id: 10
@@ -286,10 +335,12 @@ leaf_4:
       name: 999
     Ethernet2:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "part of Po towards Spine 1"
     Ethernet3:
       port_channel: "yes"
-      name: 11
+      name: 34
+      description: "part of Po towards Spine 2"
     Ethernet4:
       port_channel: "yes"
       name: 10
@@ -302,15 +353,18 @@ leaf_4:
     Port-Channel10:      
       mode: switchport
       trunking: mode trunk
-      mlag_id: 23
-    Port-Channel11:
+      mlag_id: 10
+      description: "Towards Host 2"
+    Port-Channel34:
       mode: switchport
       trunking: mode trunk
-      mlag_id: 11
+      mlag_id: 34
+      description: "Leaf 4 to Spine"
     Port-Channel999:
       mode: switchport
       trunking: mode trunk
       trunkgroup: MLAG-Peer
+      description: "MLAG Peer link"
   vlans:
     Vlan10:
       id: 10
